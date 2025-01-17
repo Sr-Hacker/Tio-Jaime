@@ -1,0 +1,339 @@
+@import url(root.css);
+
+*{
+    font-family: 'Poppins' sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: var(--primary-color);
+}
+
+.container{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.arrow{
+    position: relative;
+    margin-top: 60px;
+    width: 70px;
+    height: 70px;
+    border: none;
+    border-radius: 50%;
+    background-color: #fff5;
+    text-align: center;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.arrow img{
+    margin-top: 8px;
+    width: 50px;
+    height: 50px;
+}
+
+.container-items{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+    height: 80%;
+    margin: 60px 50px 50px 50px;
+    background: rgba(255, 255, 255, 0.2); /* Fondo semitransparente */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    backdrop-filter: blur(10px); /* Desenfoque del fondo */
+    -webkit-backdrop-filter: blur(10px); /* Soporte para Safari */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Borde sutil */
+    overflow: hidden;
+    border-radius: 50px;
+}
+
+.slider{
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 100%;
+    display: flex;
+    width: 520px;
+    overflow: hidden;
+    transition: transform 0.5s ease;
+}
+
+.item{
+    flex: 0 0 520px;
+    height: 100%;
+}
+
+.item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.duttons{
+    position: absolute;
+    top: 45%;
+    left: 5%;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.duttons button{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #fff5;
+    color: #fff;
+    border: none;
+    font-family: monospace;
+    font-weight: bold;
+}
+
+.dots{
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    color: #fff;
+}
+
+.dots li{
+    list-style: none;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: #fff;
+    margin: 10px;
+}
+
+.dots li.active{
+    width: 20px;
+    border-radius: 30%;
+}
+
+/* ------------------------- CONTAINER-CONTENT --------------------*/
+
+.container-content{
+    width: 500px;
+    height: 100%;
+    padding: 40px 30px;
+    text-align: center;
+}
+
+.container-content p{
+    margin-top: 20px;
+}
+
+  /*------------------------- Catalog Layout --------------------------------------*/
+  .catalogo {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 6.8rem 1.25rem 1.25rem 1.25rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .catalogo h2{
+    text-align: center;
+  }
+
+  .card {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: .6rem;
+    border-radius: 8px;
+    overflow: hidden;
+    max-height: 25rem;
+    position: relative;
+  }
+
+  .cards{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: .6rem;
+    border-radius: 15px;
+    overflow: hidden;
+    max-height: 25rem;  
+}
+
+  .two-cards{
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .banner{
+    position: relative;
+    overflow: hidden;
+  }
+
+  .images{
+    position: relative;
+    height: 100%;
+
+  }
+
+  .text-content{
+    position: absolute;
+    bottom: 1px;
+    left: 0;
+    height: 30%;
+    width: 100%;
+    background:linear-gradient(to top, rgba(0, 0, 0, 0.948) 15%, rgba(0, 0, 0, 0));
+    color: white;
+    text-align: center;
+    border-radius: 3px;
+    padding: 5px;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-around;
+    align-items: end;
+  }
+
+  .two-cards img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+    border-radius: 15px;
+    max-height: 12.3rem;
+    transition:  0.4s;
+  }
+
+  .banner img{
+    max-height: 25rem;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    object-fit: cover;
+    transition:  0.4s;
+  }
+  
+  img:hover {
+    transform: scale(1.03);
+    border-radius: 15px;
+}
+
+
+ /* ---------------------------- RESPONSIVE ----------------------------- */
+
+
+ @media (max-width: 768px){
+
+    .arrow{
+        margin: 60px 0 0 10px;
+        height: 50px;
+        width: 50px;
+    }
+
+    .arrow img{
+        margin-top: 11px;
+        width: 30px;
+        height: 30px;
+    }
+
+    .container-items{
+        flex-direction: column;
+        width: 90%;
+        margin: 60px 50px 50px 20px;
+    }
+
+    .slider{
+        width: 100%;
+    }
+
+    .item{
+        flex: 0 0 100%;
+    }
+
+    .duttons{
+        display: none;
+    }
+
+
+    .container-content{
+        height: 75%;
+        width: 100%;
+        padding: 0;
+    }
+
+    .container-content h3{
+        margin-top: 10px;
+    }
+
+    .container-content p{
+        padding: 20px;
+        margin-top: 0;
+    }
+
+    .catalogo{
+        padding: 1.8rem 1.25rem 1.25rem 1.25rem;
+    }
+
+
+
+ }
+
+ @media (max-width: 425px){
+
+    .container{
+        width: 100%;
+    }
+
+    .arrow{
+        position: absolute;
+        top: 5px;
+        left: 1px;
+        margin-top: 0;
+        z-index: 1;
+        background-color: rgba(136, 134, 134, 0.618);
+        height: 35px;
+        width: 35px;
+
+    }
+    .arrow img{
+        height: 20px;
+        width: 20px;
+        margin-top: 7px;
+    }
+
+    .container-items{
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 20px;
+    }
+
+
+ }
+
+ @media (max-width: 375px){
+    .text-content{
+        font-size: 8px;
+        bottom: 0;
+      }
+ }
+
+
+ @media (max-width: 320px){
+
+     .container-content{
+        font-size: 13px;
+    }
+
+ }
+
+
+
