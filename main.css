@@ -1,15 +1,4 @@
-:root{
-    --box-shadow-1: 0 15px 35px rgba(0, 0, 0, 0.185);
-    --background-1: rgba(255, 255, 255, 0.5);
-    --background-2: rgba(255, 255, 255, 0.2);
-    --padding-item: 40px 60px;
-    --border-radius-item: 20px;
-    --basic-color: #000;
-    --primary-color: #f4e7a0;
-    --secondary-color: #77a0c8;
-    --border-color: rgba(0, 0, 0, 0.25);
-    --color: #8f5023;
-}
+@import url(root.css);
 
 *{
     margin: 0;
@@ -19,9 +8,16 @@
 }
 
 body{
-    background: linear-gradient(#f4e7a0, #8f5023);
+    background: var(--color-background);
+    overflow: auto; /* Habilita el desplazamiento */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE y Edge */
 }
-
+  
+  ::-webkit-scrollbar {
+    display: none; /* Oculta la barra de scroll en navegadores WebKit */
+  }
+  
 
 section{
     display: grid;
@@ -235,6 +231,7 @@ header ul li a:hover{
     display: grid;
     gap: 1.5rem;
     justify-items: center;
+    margin-top: 20px;
  }
 
  .footer__contact{
@@ -246,7 +243,7 @@ header ul li a:hover{
 
  .footer__logo img{
     width: 220px;
-    height: 60px;
+    height: 100px;
  }
 
  .footer__social{
@@ -315,7 +312,9 @@ header ul li a:hover{
         padding: 20px;
     }
 
+
 }
+
 
 @media (max-width: 768px){
     header{
