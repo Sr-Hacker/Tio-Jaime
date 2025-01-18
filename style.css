@@ -1,5 +1,5 @@
 /* General Reset */
-@import url();
+@import url(root.css);
 
 * {
     margin: 0;
@@ -9,86 +9,96 @@
   
   body {
     font-family: 'Roboto', sans-serif;
-    background-color: #ede5bc;
+    background: var(--primary-color);
+    overflow: auto; /* Habilita el desplazamiento */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE y Edge */
   }
 
-  body::before,
-  body::after{
-      content: '';
-      position: fixed;
-      left: 0;
-      top: 0;
-      height: 100%;
-      width: 100%;
-      z-index: -1;
-      opacity: .6;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
-    }
-  
-  body::before{
-      clip-path: circle(30% at left 20%);
-      background: linear-gradient(to right, #a9ccef, #979494);
-    }
-  
-  body::after{
-      clip-path: circle(25% at right 80%);
-      background: linear-gradient(to right,#a9ccef, #ae9653);
-    }
-  
-  header {
-    background-color: rgba(227, 224, 224, 0.255);
-    backdrop-filter: blur(10px);
-    padding: 10px 20px 10px 20px;
-    text-align: center;
+  ::-webkit-scrollbar {
+    display: none; /* Oculta la barra de scroll en navegadores WebKit */
+  }
+
+  .bubble {
     position: fixed;
-    width: 100%;
-    z-index: 100;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.254);
-  }
-  
-  header h1 {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: var(--color-background);
+    opacity: 0.6;
+    filter: blur(20px); /* Hace que la burbuja esté difuminada */
+}
 
-  .search-bar{
+.bubble-1 {
+    top: -5%;
+    left: -5%;
+}
+
+.bubble-2 {
+    top: 60%;
+    right: -8%;
+}
+
+  
+/* ------------------------ MENU ----------------------------------------- */
+    
+  header{
+    top: 10px;
+    right: 20px;
+    left: 20px;
+    padding: 20px 50px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    background: var(--background-2);
+    box-shadow: var(--box-shadow-1);
+    border-radius: var(--border-radius-item);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    border-top: 1px solid var(--background-1);
+    border-left: 1px solid var(--background-1);
+    position: absolute;
+    z-index: 10;
+    transition: all .3s ease;
   }
-  
-  .search-bar img{
-    border-radius: 50%;
+
+  header .logo img{
+    width: 220px;
     height: 60px;
-    width: 60px;
-  }
-
-  .tittle{
-    margin-top: .4rem;
-  }
-
-  .navbar {
-    display: flex;
-    justify-content: center;
-    gap: 1.25rem;
   }
   
-  .navbar a {
-    text-decoration: none;
-    color: #333;
-    font-weight: 100;
+  header ul{
+      display: flex;
   }
   
-  .navbar a:hover {
-    color: #0073e6;
+  header ul li{
+      list-style: none;
+      margin: 0 10px;
+  
+  
   }
   
-  /* Catalog Layout */
+  header ul li a{
+      text-decoration: none;
+      font-weight: 500;
+      color: var(--basic-color);
+      padding: 8px 15px;
+      border: 25px;
+  }
+  
+  header ul li a.active,
+  header ul li a:hover{
+      background: var(--secondary-color);
+      box-shadow: 0 5px 10px var(--box-shadow-1);
+      border-radius: var(--border-radius-item);
+  }
+  
+  /*------------------------- Catalog Layout ---------------------------*/
   .catalogo {
     display: grid;
     grid-template-columns: 1fr;
     gap: 20px;
-    padding: 6.8rem 1.25rem 1.25rem 1.25rem;
+    padding: 8rem 1.25rem 1.25rem 1.25rem;
     max-width: 1200px;
     margin: 0 auto;
   }
@@ -172,41 +182,63 @@
     border-radius: 5px;
 }
 
-  /* Responsive Design */
+  /*--------------------------- Responsive Design --------------------------*/
+
+  @media (max-width: 1024px){
+  
+  header .logo img{
+      width: 200px;
+  }
+
+  }
+
   @media (max-width: 768px) {
   
-    header h1 {
-      font-size: 20px;
-    }
-  
+    header{
+      padding: 20px 5px;
+  }
+
+  header ul li{
+      margin: 0 2px;
+  }
+
+  header ul li a{
+      padding: 8px 5px;
   }
   
-  @media (max-width: 480px) {
+  header .logo img{
+    width: 160px;
+    height: 50px;
+    }
+
+
+  }
+  
+  @media (max-width: 425px) {
 
     header{
-      padding: 0 .4rem;
-      font-size: 15px;
-    }
-
-    header h1 {
-      font-size: 18px;
-    }
-
-    .search-bar{
-      margin-top: .1rem;
-    }
-
-    .search-bar img{
-      height:40px;
-      width: 40px;
-    }
+      left: 0;
+      right: 0;
+      position: fixed;
+      border-radius: 0;
+      flex-direction: column;
+      font-size: 12px;
+      margin-top: -9px;
+      z-index: 100;
+      align-items: start;
+      padding: 5px 5px 15px 5px;
+  }
 
 
-    .navbar{
-      margin-top: 1rem;
-      gap: .8rem;
-      font-size: .8rem;
-    }
+  header ul li a{
+      padding: 5px 15px;
+  }
+
+  header .logo img{
+      width: 160px;
+      height: 45px;
+      margin-left: 135px;
+  }
 
 
   .text-content{
@@ -214,6 +246,42 @@
     bottom: 0;
   }
 
+  .catalogo{
+    padding: 7rem 1.25rem 1.25rem 1.25rem;
+  }
 
   }
   
+
+  @media (max-width: 375px) {
+
+    header{
+      align-items: center;
+    }
+
+    header ul li a{
+      padding: 5px 10px;
+  }
+
+  header .logo img{
+      margin-left: 10px;
+  }
+
+  }
+
+  @media (max-width: 320px){
+    
+    header{
+      font-size: 10px;
+    }
+
+    header ul li{
+      margin: 0;
+    }
+
+    .catalogo{
+      padding: 6rem 1rem 1rem 1rem;
+    }
+
+  }
+
