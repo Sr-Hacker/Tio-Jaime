@@ -8,7 +8,14 @@
 
 body{
     background-color: var(--primary-color);
+    overflow: auto; /* Habilita el desplazamiento */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE y Edge */
 }
+
+::-webkit-scrollbar {
+    display: none; /* Oculta la barra de scroll en navegadores WebKit */
+  }
 
 .container{
     height: 100vh;
@@ -138,7 +145,7 @@ body{
     display: grid;
     grid-template-columns: 1fr;
     gap: 20px;
-    padding: 6.8rem 1.25rem 1.25rem 1.25rem;
+    padding: 0 1.25rem 1.25rem 1.25rem;
     max-width: 1200px;
     margin: 0 auto;
   }
